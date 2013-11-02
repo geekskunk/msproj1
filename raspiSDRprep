@@ -26,13 +26,8 @@ sudo ldconfig
 #
 #  Setup wireless
 #
-
-
-
-sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-
-echo "make sure to update wireless network settings in /etc/wpa_supplicant/wpa_supplicant.conf if you didn't before running this script"
-
-echo " to test wireless: sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf "
+#sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+#echo "make sure to update wireless network settings in /etc/wpa_supplicant/wpa_supplicant.conf if you didn't before running this script"
+#echo " to test wireless: sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf "
 
 exit
