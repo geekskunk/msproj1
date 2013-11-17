@@ -40,6 +40,7 @@ cd ..
 #until then
 git clone https://github.com/kpreid/txWS.git
 cd txWS
+git checkout binary
 sudo python setup.py install
 cd ..
 
