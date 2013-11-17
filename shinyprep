@@ -1,0 +1,82 @@
+#!/bin/bash
+#
+# Script to setup shinysdr
+#
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+sudo add-apt-repository ppa:twisted-dev/ppa
+sudo apt-get update
+sudo apt-get install google-chrome-stable
+git clone https://github.com/kpreid/shinysdr.git
+
+sudu apt-get install python-twisted
+sudo apt-get install python-setuptools
+#sudo apt-get install ruby-rvm
+#rvm use system
+#sudo rvm install ruby-1.9.2-p180
+
+sudo add-apt-repository ppa:twisted-dev/ppa
+
+
+#Not sure not much of this ruby stuff needed
+sudo gem install rake
+sudo gem install rake-builder
+sudo gem install json
+sudo gem install tilt
+sudo gem install bundler
+sudo gem install rspec
+sudo gem install load
+
+git clone https://github.com/habnabit/vcversioner.git
+cd vcversioner
+sudo python setup.py install
+cd ..
+
+#git clone https://github.com/MostAwesomeDude/txWS.git
+# someday ounce kpeid patch makes it in
+#until then
+git clone https://github.com/kpreid/txWS.git
+cd txWS
+sudo python setup.py install
+cd ..
+
+#https://github.com/pivotal/jasmine/
+git clone https://github.com/pivotal/jasmine.git
+cd jasmine
+git checkout v1.3.1
+cd ..
+
+#http://openlayers.org/
+wget http://openlayers.org/download/OpenLayers-2.13.1.tar.gz
+tar -zxvf OpenLayers-2.13.1.tar.gz
+
+#http://requirejs.org/
+wget http://requirejs.org/docs/release/2.1.9/minified/require.js
+
+
+mv require.js ./shinysdr/shinysdr/deps/
+mv jasmine /shinysdr/shinysdr/deps/
+mv OpenLayers-2.13.1 openlayers
+mv openlayers ./shinysdr/shinysdr/deps/
+
+cd shinysdr
+mkdir dbs
+sudo python setup.py install --record files_created_during_intall.txt
+
+
+
+python -m shinysdr.main --create example_config_file
+
+#python -m shinysdr.main -g example_config_file
+
+
+
+
+
+
+
+
+
