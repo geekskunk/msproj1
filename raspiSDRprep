@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Script to setup Raspi to run RTL_SDR
-#
+# 
 
 # Not required on Raspian
 # sudo apt-get install git
@@ -31,4 +31,18 @@ sudo ldconfig
 #echo "make sure to update wireless network settings in /etc/wpa_supplicant/wpa_supplicant.conf if you didn't before running this script"
 #echo " to test wireless: sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf "
 
+#
+# Get stuffs for RTL-power and heatmap script
+#
+cd /home/pi
+wget http://kmkeen.com/tmp/heatmap.py.txt
+mv heatmap.py.txt heatmap.py
+cd /usr/bin
+sudo ln -s python2.7 python2
+# PIL needed for heatmap script
+sudo apt-get install python-imaging
+#
+cd /home/pi
+diff /home/pi/heatmap.py /home/pi/msproj1/heatmap.py
+#Just checking if source updated
 exit
