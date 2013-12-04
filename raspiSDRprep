@@ -12,8 +12,8 @@ sudo apt-get install pkg-config
 
 sudo apt-get install libusb-1.0
 
-
-git clone git://git.osmocom.org/rtl-sdr.git
+# get rtl_sdr
+git clone git://git.osmocom.org/rtl-sdr.git 
 
 cd rtl-sdr
 mkdir build
@@ -22,6 +22,14 @@ cmake ../ -DINSTALL_UDEV_RULES=ON
 make
 sudo make install
 sudo ldconfig
+
+# Get dump1090
+git clone https://github.com/antirez/dump1090.git
+
+cd dump1090
+make
+cd ..
+
 
 #
 #  Setup wireless
