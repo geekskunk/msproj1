@@ -74,10 +74,3 @@ python -m shinysdr.main --create example_config_file
 #python -m shinysdr.main -g example_config_file
 
 
-
-
-
-
-
-
-

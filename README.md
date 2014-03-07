@@ -8,3 +8,7 @@ chmod +x raspiSDRprep
 ./raspiSDRprep
 
 select y when prompted
+
+raspiSDRprep_ArchLinux.txt provides suggested commands for rtl-sdr utilities with Arch Linux
+
+shiny prep was a stab at setting up an early release of shinysdr

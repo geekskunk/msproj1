@@ -1,0 +1,14 @@
+#
+# Get stuffs for RTL-power and heatmap script
+# for Arch Linux
+#
+pacman -S rtl-sdr
+pacman -S python
+pacman -S python-imaging
+#option 1
+
+cd /home/pi
+wget http://kmkeen.com/tmp/heatmap.py.txt
+mv heatmap.py.txt heatmap.py
+chmod +x heatmap.py
+
